@@ -1,0 +1,334 @@
+% Theme of Mitsuha on Matlab
+clc;clear;
+fs = 44101; % sample rate
+dt = 1/fs;
+T16 = 0.16;
+t1 = [0:dt:T16];
+[temp, k] = size(t1);
+k=7056;%temp
+t2 = linspace(0,2*T16,2*k);
+t1_6 = linspace(0,16*T16/6,16*k/6);
+t4 = linspace(0,4*T16,4*k);
+t6 = linspace(0,6*T16,6*k);
+t8 = linspace(0,8*T16,8*k);
+t10 = linspace(0,10*T16,10*k);
+t12 = linspace(0,12*T16,12*k);
+t16 = linspace(0,16*T16,16*k);
+t18 = linspace(0,18*T16,18*k);
+t20 = linspace(0,20*T16,20*k);
+t24 = linspace(0,24*T16,24*k);
+t28 = linspace(0,28*T16,28*k);
+t32 = linspace(0,32*T16,32*k);
+t0_7 = linspace(0,0.9*T16,0.9*k);
+[~, l] = size(t16);
+[~, m] = size(t8);
+[~, i] = size(t4);
+[~, j] = size(t2);
+[~, n] = size(t0_7);
+% Modification functions
+mod32 = sin(pi*t32/t32(end));
+mod28 = sin(pi*t28/t28(end));
+mod24 = sin(pi*t24/t24(end));
+mod20 = sin(pi*t20/t20(end));
+mod18 = sin(pi*t18/t18(end));
+mod16 = sin(pi*t16/t16(end));
+mod12 = sin(pi*t12/t12(end));
+mod10 = sin(pi*t10/t10(end));
+mod8 = sin(pi*t8/t8(end));
+mod6 = sin(pi*t6/t6(end));
+mod4 = sin(pi*t4/t4(end));
+mod1_6 = sin(pi*t1_6/t1_6(end));
+mod2 = sin(pi*t2/t2(end));
+mod1 = sin(pi*t1/t1(end));
+mod0_7 = sin(pi*t0_7/t0_7(end));
+f0 = 2*138.6;%146.8; % reference frequency
+ScaleTable = [1/2 9/16 5/8 2/3 3/4 5/6 15/16 ...
+           1 9/8 5/4 4/3 3/2 5/3 15/8 ...
+           2 9/4 5/2 8/3 3 10/3 15/4 ...
+           4 9/2 5 16/3 6 20/3 15/2 ...
+           ];
+%1/6 notes
+do1tr = mod1_6.*cos(2*pi*ScaleTable(8)*f0*t1_6);
+re1tr = mod1_6.*cos(2*pi*ScaleTable(9)*f0*t1_6);
+do2tr = mod1_6.*cos(2*pi*ScaleTable(15)*f0*t1_6);
+rb2tr = mod1_6.*cos(2*pi*(17/8)*f0*t1_6);
+re2tr = mod1_6.*cos(2*pi*ScaleTable(16)*f0*t1_6);
+so2tr = mod1_6.*cos(2*pi*ScaleTable(19)*f0*t1_6);
+la2tr = mod1_6.*cos(2*pi*ScaleTable(20)*f0*t1_6);
+rb3tr = mod1_6.*cos(2*pi*(17/4)*f0*t1_6);
+re3tr = mod1_6.*cos(2*pi*ScaleTable(23)*f0*t1_6);
+% 1/4 notes
+mi_2q = mod4.*cos(2*pi*(5/32)*f0*t4);
+fa_2q = mod4.*cos(2*pi*(1/6)*f0*t4);
+mi_1q = mod4.*cos(2*pi*(5/16)*f0*t4);
+fa_1q = mod4.*cos(2*pi*(1/3)*f0*t4);
+so_1q = mod4.*cos(2*pi*(3/8)*f0*t4);
+la_1q = mod4.*cos(2*pi*(5/12)*f0*t4);
+ti_1q = mod4.*cos(2*pi*(15/32)*f0*t4);
+do0q = mod4.*cos(2*pi*ScaleTable(1)*f0*t4);
+rb0q = mod4.*cos(2*pi*(17/32)*f0*t4);
+re0q = mod4.*cos(2*pi*ScaleTable(2)*f0*t4);
+mi0q = mod4.*cos(2*pi*ScaleTable(3)*f0*t4);
+fa0q = mod4.*cos(2*pi*ScaleTable(4)*f0*t4);
+so0q = mod4.*cos(2*pi*ScaleTable(5)*f0*t4);
+la0q = mod4.*cos(2*pi*ScaleTable(6)*f0*t4);
+tb0q = mod4.*cos(2*pi*(19/24)*f0*t4);
+ti0q = mod4.*cos(2*pi*ScaleTable(7)*f0*t4);
+do1q = mod4.*cos(2*pi*ScaleTable(8)*f0*t4);
+re1q = mod4.*cos(2*pi*ScaleTable(9)*f0*t4);
+mi1q = mod4.*cos(2*pi*ScaleTable(10)*f0*t4);
+fa1q = mod4.*cos(2*pi*ScaleTable(11)*f0*t4);
+so1q = mod4.*cos(2*pi*ScaleTable(12)*f0*t4);
+la1q = mod4.*cos(2*pi*ScaleTable(13)*f0*t4);
+tb1q = mod4.*cos(2*pi*(9/5)*f0*t4);
+ti1q = mod4.*cos(2*pi*ScaleTable(14)*f0*t4);
+do2q = mod4.*cos(2*pi*ScaleTable(15)*f0*t4);
+re2q = mod4.*cos(2*pi*ScaleTable(16)*f0*t4);
+mi2q = mod4.*cos(2*pi*ScaleTable(17)*f0*t4);
+fa2q = mod4.*cos(2*pi*ScaleTable(18)*f0*t4);
+so2q = mod4.*cos(2*pi*ScaleTable(19)*f0*t4);
+la2q = mod4.*cos(2*pi*ScaleTable(20)*f0*t4);
+tb2q = mod4.*cos(2*pi*(85/24)*f0*t4);
+ti2q = mod4.*cos(2*pi*ScaleTable(21)*f0*t4);
+do3q = mod4.*cos(2*pi*ScaleTable(22)*f0*t4);
+re3q = mod4.*cos(2*pi*ScaleTable(23)*f0*t4);
+mi3q = mod4.*cos(2*pi*ScaleTable(24)*f0*t4);
+fa3q = mod4.*cos(2*pi*ScaleTable(25)*f0*t4);
+so3q = mod4.*cos(2*pi*ScaleTable(26)*f0*t4);
+la3q = mod4.*cos(2*pi*ScaleTable(27)*f0*t4);
+ti3q = mod4.*cos(2*pi*ScaleTable(28)*f0*t4);
+
+blkq = zeros(1,i);
+% 1/8 notes
+fa_2e = mod2.*cos(2*pi*(1/6)*f0*t2);
+fa_1e = mod2.*cos(2*pi*(1/3)*f0*t2);
+do0e = mod2.*cos(2*pi*ScaleTable(1)*f0*t2);
+re0e = mod2.*cos(2*pi*ScaleTable(2)*f0*t2);
+mi0e = mod2.*cos(2*pi*ScaleTable(3)*f0*t2);
+fa0e = mod2.*cos(2*pi*ScaleTable(4)*f0*t2);
+so0e = mod2.*cos(2*pi*ScaleTable(5)*f0*t2);
+la0e = mod2.*cos(2*pi*ScaleTable(6)*f0*t2);
+ti0e = mod2.*cos(2*pi*ScaleTable(7)*f0*t2);
+do1e = mod2.*cos(2*pi*ScaleTable(8)*f0*t2);
+re1e = mod2.*cos(2*pi*ScaleTable(9)*f0*t2);
+mi1e = mod2.*cos(2*pi*ScaleTable(10)*f0*t2);
+fa1e = mod2.*cos(2*pi*ScaleTable(11)*f0*t2);
+so1e = mod2.*cos(2*pi*ScaleTable(12)*f0*t2);
+la1e = mod2.*cos(2*pi*ScaleTable(13)*f0*t2);
+tb1e = mod2.*cos(2*pi*(9/5)*f0*t2);
+ti1e = mod2.*cos(2*pi*ScaleTable(14)*f0*t2);
+do2e = mod2.*cos(2*pi*ScaleTable(15)*f0*t2);
+re2e = mod2.*cos(2*pi*ScaleTable(16)*f0*t2);
+mi2e = mod2.*cos(2*pi*ScaleTable(17)*f0*t2);
+fa2e = mod2.*cos(2*pi*ScaleTable(18)*f0*t2);
+so2e = mod2.*cos(2*pi*ScaleTable(19)*f0*t2);
+la2e = mod2.*cos(2*pi*ScaleTable(20)*f0*t2);
+ti2e = mod2.*cos(2*pi*ScaleTable(21)*f0*t2);
+do3e = mod2.*cos(2*pi*ScaleTable(22)*f0*t2);
+re3e = mod2.*cos(2*pi*ScaleTable(23)*f0*t2);
+mi3e = mod2.*cos(2*pi*ScaleTable(24)*f0*t2);
+fa3e = mod2.*cos(2*pi*ScaleTable(25)*f0*t2);
+so3e = mod2.*cos(2*pi*ScaleTable(26)*f0*t2);
+la3e = mod2.*cos(2*pi*ScaleTable(27)*f0*t2);
+ti3e = mod2.*cos(2*pi*ScaleTable(28)*f0*t2);
+blke = zeros(1,j);
+% 1/16 notes
+do0s = mod1.*cos(2*pi*ScaleTable(1)*f0*t1);
+re0s = mod1.*cos(2*pi*ScaleTable(2)*f0*t1);
+mi0s = mod1.*cos(2*pi*ScaleTable(3)*f0*t1);
+fa0s = mod1.*cos(2*pi*ScaleTable(4)*f0*t1);
+so0s = mod1.*cos(2*pi*ScaleTable(5)*f0*t1);
+la0s = mod1.*cos(2*pi*ScaleTable(6)*f0*t1);
+ti0s = mod1.*cos(2*pi*ScaleTable(7)*f0*t1);
+do1s = mod1.*cos(2*pi*ScaleTable(8)*f0*t1);
+re1s = mod1.*cos(2*pi*ScaleTable(9)*f0*t1);
+mi1s = mod1.*cos(2*pi*ScaleTable(10)*f0*t1);
+fa1s = mod1.*cos(2*pi*ScaleTable(11)*f0*t1);
+so1s = mod1.*cos(2*pi*ScaleTable(12)*f0*t1);
+la1s = mod1.*cos(2*pi*ScaleTable(13)*f0*t1);
+tb1s = mod1.*cos(2*pi*(9/5)*f0*t1);
+ti1s = mod1.*cos(2*pi*ScaleTable(14)*f0*t1);
+do2s = mod1.*cos(2*pi*ScaleTable(15)*f0*t1);
+re2s = mod1.*cos(2*pi*ScaleTable(16)*f0*t1);
+mi2s = mod1.*cos(2*pi*ScaleTable(17)*f0*t1);
+fa2s = mod1.*cos(2*pi*ScaleTable(18)*f0*t1);
+so2s = mod1.*cos(2*pi*ScaleTable(19)*f0*t1);
+la2s = mod1.*cos(2*pi*ScaleTable(20)*f0*t1);
+ti2s = mod1.*cos(2*pi*ScaleTable(21)*f0*t1);
+do3s = mod1.*cos(2*pi*ScaleTable(22)*f0*t1);
+re3s = mod1.*cos(2*pi*ScaleTable(23)*f0*t1);
+mi3s = mod1.*cos(2*pi*ScaleTable(24)*f0*t1);
+fa3s = mod1.*cos(2*pi*ScaleTable(25)*f0*t1);
+so3s = mod1.*cos(2*pi*ScaleTable(26)*f0*t1);
+la3s = mod1.*cos(2*pi*ScaleTable(27)*f0*t1);
+ti3s = mod1.*cos(2*pi*ScaleTable(28)*f0*t1);
+blks = zeros(1,k);
+
+%1/(2*16) notes
+la1a = mod0_7.*cos(2*pi*ScaleTable(13)*f0*t0_7);
+ti1a = mod0_7.*cos(2*pi*ScaleTable(14)*f0*t0_7);
+do2a = mod0_7.*cos(2*pi*ScaleTable(15)*f0*t0_7);
+mi2a = mod0_7.*cos(2*pi*ScaleTable(17)*f0*t0_7);
+so2a = mod0_7.*cos(2*pi*ScaleTable(18)*f0*t0_7);
+la2a = mod0_7.*cos(2*pi*ScaleTable(20)*f0*t0_7);
+ti2a = mod0_7.*cos(2*pi*ScaleTable(21)*f0*t0_7);
+blka = zeros(1,n);
+% 1/4+1/8 notes
+fa0qe = mod6.*cos(2*pi*ScaleTable(4)*f0*t6);
+la0qe = mod6.*cos(2*pi*ScaleTable(6)*f0*t6);
+ti1qe = mod6.*cos(2*pi*ScaleTable(14)*f0*t6);
+do2qe = mod6.*cos(2*pi*ScaleTable(15)*f0*t6);
+ti2qe = mod6.*cos(2*pi*ScaleTable(21)*f0*t6);
+
+do3qe = mod6.*cos(2*pi*ScaleTable(22)*f0*t6);
+
+% 1/2 notes
+fa_1h = mod8.*cos(2*pi*(1/3)*f0*t8);
+so_1h = mod8.*cos(2*pi*(3/8)*f0*t8);
+la_1h = mod8.*cos(2*pi*(5/12)*f0*t8);
+do0h = mod8.*cos(2*pi*ScaleTable(1)*f0*t8);
+re0h = mod8.*cos(2*pi*ScaleTable(2)*f0*t8);
+mi0h = mod8.*cos(2*pi*ScaleTable(3)*f0*t8);
+fa0h = mod8.*cos(2*pi*ScaleTable(4)*f0*t8);
+so0h = mod8.*cos(2*pi*ScaleTable(5)*f0*t8);
+la0h = mod8.*cos(2*pi*ScaleTable(6)*f0*t8);
+do1h = mod8.*cos(2*pi*ScaleTable(8)*f0*t8);
+rb1h = mod8.*cos(2*pi*(17/16)*f0*t8);
+re1h = mod8.*cos(2*pi*ScaleTable(9)*f0*t8);
+mi1h = mod8.*cos(2*pi*ScaleTable(10)*f0*t8);
+fa1h = mod8.*cos(2*pi*ScaleTable(11)*f0*t8);
+so1h = mod8.*cos(2*pi*ScaleTable(12)*f0*t8);
+la1h = mod8.*cos(2*pi*ScaleTable(13)*f0*t8);
+ti1h = mod8.*cos(2*pi*ScaleTable(14)*f0*t8);
+do2h = mod8.*cos(2*pi*ScaleTable(15)*f0*t8);
+mi2h = mod8.*cos(2*pi*ScaleTable(17)*f0*t8);
+la2h = mod8.*cos(2*pi*ScaleTable(20)*f0*t8);
+blkh = zeros(1,m);
+% 1/2+1/8 notes
+do2he = mod10.*cos(2*pi*ScaleTable(15)*f0*t10);
+la2he = mod10.*cos(2*pi*ScaleTable(20)*f0*t10);
+% 1/2+1/4 notes
+mi1hq = mod12.*cos(2*pi*ScaleTable(10)*f0*t12);
+la1hq = mod12.*cos(2*pi*ScaleTable(13)*f0*t12);
+do2hq = mod12.*cos(2*pi*ScaleTable(15)*f0*t12);
+mi2hq = mod12.*cos(2*pi*ScaleTable(17)*f0*t12);
+la2hq = mod12.*cos(2*pi*ScaleTable(20)*f0*t12);
+mi3hq = mod12.*cos(2*pi*ScaleTable(24)*f0*t12);
+%whole notes
+fa_1w = mod16.*cos(2*pi*(1/3)*f0*t16);
+la_1w = mod16.*cos(2*pi*(5/12)*f0*t16);
+do0w = mod16.*cos(2*pi*ScaleTable(1)*f0*t16);
+fa0w = mod16.*cos(2*pi*ScaleTable(4)*f0*t16);
+so0w = mod16.*cos(2*pi*ScaleTable(5)*f0*t16);
+la0w = mod16.*cos(2*pi*ScaleTable(6)*f0*t16);
+do1w = mod16.*cos(2*pi*ScaleTable(8)*f0*t16);
+rb1w = mod16.*cos(2*pi*(17/16)*f0*t16);
+re1w = mod16.*cos(2*pi*ScaleTable(9)*f0*t16);
+mi1w = mod16.*cos(2*pi*ScaleTable(10)*f0*t16);
+so1w = mod16.*cos(2*pi*ScaleTable(12)*f0*t16);
+ti1w = mod16.*cos(2*pi*ScaleTable(14)*f0*t16);
+do2w = mod16.*cos(2*pi*ScaleTable(15)*f0*t16);
+mi2w = mod16.*cos(2*pi*ScaleTable(17)*f0*t16);
+re3w = mod16.*cos(2*pi*ScaleTable(23)*f0*t16);
+blkw = zeros(1,l);
+%4.5 notes
+re3w_ = mod18.*cos(2*pi*ScaleTable(23)*f0*t18);
+% 5 notes
+mi15 = mod20.*cos(2*pi*ScaleTable(10)*f0*t20);
+fa15 = mod20.*cos(2*pi*ScaleTable(11)*f0*t20);
+so15 = mod20.*cos(2*pi*ScaleTable(12)*f0*t20);
+la15 = mod20.*cos(2*pi*ScaleTable(13)*f0*t20);
+mi25 = mod20.*cos(2*pi*ScaleTable(17)*f0*t20);
+% 6 notes
+fa_16 = mod24.*cos(2*pi*(1/3)*f0*t24);
+do06 = mod24.*cos(2*pi*ScaleTable(1)*f0*t24);
+fa06 = mod24.*cos(2*pi*ScaleTable(4)*f0*t24);
+la06 = mod24.*cos(2*pi*ScaleTable(6)*f0*t24);
+mi16 = mod24.*cos(2*pi*ScaleTable(10)*f0*t24);
+fa16 = mod24.*cos(2*pi*ScaleTable(11)*f0*t24);
+so16 = mod24.*cos(2*pi*ScaleTable(12)*f0*t24);
+la16 = mod24.*cos(2*pi*ScaleTable(13)*f0*t24);
+do26 = mod24.*cos(2*pi*ScaleTable(15)*f0*t24);
+la26 = mod24.*cos(2*pi*ScaleTable(20)*f0*t24);
+re36 = mod24.*cos(2*pi*ScaleTable(23)*f0*t24);
+mi36 = mod24.*cos(2*pi*ScaleTable(24)*f0*t24);
+la36 = mod24.*cos(2*pi*ScaleTable(27)*f0*t24);
+% 7 notes
+do17 = mod28.*cos(2*pi*ScaleTable(8)*f0*t28);
+mi17 = mod28.*cos(2*pi*ScaleTable(10)*f0*t28);
+so17 = mod28.*cos(2*pi*ScaleTable(12)*f0*t28);
+la17 = mod28.*cos(2*pi*ScaleTable(13)*f0*t28);
+re27 = mod28.*cos(2*pi*ScaleTable(16)*f0*t28);
+% 8 notes
+do08 = mod32.*cos(2*pi*ScaleTable(1)*f0*t32);
+fa08 = mod32.*cos(2*pi*ScaleTable(4)*f0*t32);
+% appoggiatura
+appoggiatura = [ ];
+% Bass
+bass1 = [blkq blkq blkq blkq fa1h so1h mi1h fa15 blkq...
+         fa1h so1h mi1h fa15 blkq fa1h so1h...
+         mi1h fa15 blkq fa1h so1h mi1h fa16...
+         fa08 la0w...
+         so0w fa08 la0w...
+         so0w fa08 la0w...
+         so0w fa08 fa08...
+         do1w+fa0w so0h re1tr do1tr re1tr mi1w+la0w...
+         do1w+[blkq blkq mi1h] so1w+fa0w do2h so1h mi1hq re1e do1e...
+         re1w do1w so0h re1tr do1tr re1tr mi16...
+         so16 do2w do2w...
+         ti1w blkq blkq blkq blkq fa1h so1h mi1h fa15...
+         blkq fa1h so1h mi1h fa15 blkq...
+         fa1h so1h mi1h fa15 blkq do1h+re0h re1h+mi0h...
+         mi1h+so0h so1h+la0h so1h+re1h+la0h ti1h+mi1h+so0h so1h+mi1h+re1h so1h+mi1h+re1h so1h+mi1h+re1h so1h+mi1h+re1h...
+         so1h+mi1h+rb1h so1h+mi1h+do1h so1h+mi1h+rb1h so1h+mi1h+do1h so1h+mi1h+re1h so1h+mi1h+re1h so1h+mi1h+re1h so1h+mi1h+re1h...
+         so1w+mi1w+rb1w so1w+mi1w+rb1w so1w+mi1w+rb1w blkq blkq blkq blkq...
+         fa08 la0w so0w...
+         fa08 la0w so0w...
+         fa08 fa08...
+         fa08];
+bass2 = [blkq blkq fa_1h so_1h  la_1h do06...
+        fa_1h so_1h la_1h do06...
+        fa_1h so_1h la_1h do08...
+        fa_1h so_1h la_1h do08...
+        do1q+fa_1q la0q+fa0q re0q+so_1q ti0q+so0q re0q+mi_1q so0q+mi0q mi0q+la_1q ti0q+so0q do1q+fa_1q la0q+fa0q re0q+so_1q ti0q+so0q ti_1q+mi_1q so0q+mi0q mi0q+la_1q mi1q+do1q+so0q...
+        do1q+fa_1q la0q+fa0q re0q+so_1q ti0q+so0q re0q+mi_1q so0q+mi0q mi0q+la_1q ti0q+so0q fa_1q+fa_2q fa0q+fa_1q fa_1q fa0q+fa_1q fa_1q fa0q+fa_1q fa_1q fa0q+fa_1q...
+        fa_1q fa0q+fa_1q fa_1q fa0q+fa_1q fa_1q fa0q+fa_1q fa_1q fa0q+fa_1q mi_1q+mi_2q mi0q+mi_1q mi_1q mi0q+mi_1q mi_1q mi0q+mi_1q mi_1q mi0q+mi_1q...
+        mi_1q mi0q+mi_1q mi_1q mi0q+mi_1q mi_1q mi0q+mi_1q mi_1q mi0q+mi_1q fa_1e fa0e la0e do1e fa0e fa_1e fa0e fa_1q fa_1e fa0e fa_1e fa0e fa_1e fa0e fa_1e...
+        fa_2e fa_1e do0e la0h+fa0h la0qe+fa0qe la0q+do0q la06+do06+fa_16];
+% Treble
+treble1 = [blkq blkq blkq do2e re2e mi2q so2q fa2q mi2q re2q do2q mi25 so1e la1e...
+           do2q re2q mi2q ti1q do2q so1q la15 do2e re2e mi2q so2q fa2q mi2q...
+           re2q do2q mi25 so1e la1e do2q re2q mi2q ti1q do2q so1q la16...
+           do2e so2e do2e so2e do2hq do2e so2e do2e so2e do2q do2e so2e do2e so2e do2hq...
+           do2e re2e do2e mi2e do2q do2e so2e do2e so2e do2hq do2e so2e do2e so2e do2q do2e so2e do2e so2e do2he...
+           do3e ti2e so2e la2e mi2e so2e ti1e do2e so2e do2e so2e do2hq do2e so2e do2e so2e do2q do2e so2e do2e so2e do2hq...
+           do2e re2e do2e mi2e do2q do2e re2e do2e mi2e do2hq do2e re2e do2e mi2e do2q do2e re2e do2e mi2e do2hq...
+           blkq blkq blkq so2q+so1q so1q do2q so1q re2q so1q mi2q+do2q so1q so2q+do2q la1q do2q la1q...
+           re2q la1q fa2e+do2e+so1e mi2e+do2e+so1e re2e+do2e+so1e do2e+so1e blkq fa1q so1q fa1q la1q fa1q do2q+so1q fa1q mi2q+do2q so1q do2q so1q...
+           re2q+do2q so1q do2q so1q so2q+do2q+la1q so1q do2q so1q re2q so1q mi2q+do2q so1q so2q+re2q+do2q la1q do2q la1q...
+           re2q la1q fa2e+do2e+so1e mi2e+do2e+so1e re2e+do2e+so1e do2e+so1e blkq fa1q so1q fa1q la1q fa1q do2q+so1q fa1q mi2q+do2q+so1q so1q do2q so1q...
+           re27+la17+so17 do2e re2e mi2q so2q fa2q mi2q re2q do2q mi25...
+           so1e la1e do2q re2q mi2q ti1q do2q so1q la15 do2e re2e...
+           mi2q so2q fa2q mi2q re2q do2q mi25 so1e la1e do2q+fa1q ti1q re2q+so1q do2q...
+           mi2q+tb1q+so1q re2q so2q+do2q+la1q fa2q la2q+do2q so2q do3q+so2q+re2q tb2q la2tr+re2tr so2tr la2tr re3tr+re2tr la2tr so2tr la2tr+re2tr so2tr la2tr re3tr+re2tr la2tr so2tr...
+           la2tr+rb2tr so2tr la2tr rb3tr+do2tr la2tr so2tr la2tr+re2tr so2tr la2tr re3tr+re2tr la2tr so2tr la2tr+re2tr so2tr la2tr re3tr+re2tr la2tr so2tr la2tr+re2tr so2tr la2tr re3tr+re2tr la2tr so2tr...
+           la2tr+rb2tr so2tr la2tr rb3tr+do2tr la2tr so2tr re3tr so2tr la2tr la36+mi36+re36+la26 blkq blkq blkq blkq...
+           do2e so2e do2e so2e do2hq do2e so2e do2e so2e do2q do2e so2e do2e so2e do2hq do2e re2e do2e mi2e do2q...
+           do2e so2e do2e so2e do2hq do2e so2e do2e so2e do2q do2e so2e do2e so2e do2he do3e ti2e so2e la2e mi2e so2e ti1e...
+           do2e re2e do2e mi2e do2hq do2e re2e do2e mi2e do2q do2e re2e do2e mi2e do26...
+           do2e so2e do2e mi2e do2w do1e re1e mi1e so1e];
+       
+treble2 = [do1e re1e mi1e so1e la1q mi1q so1q re1q mi1q do1q re1e so1e mi15...
+          so0q do1q ti0q re1q do1q mi1q re1q so15...
+          do1e re1e mi1e so1e la1q mi1q so1q re1q mi1q do1q re1e so1e mi15...
+          so0q do1q ti0q re1q do1q mi1q re1q do17...
+          la1e so1e do2e ti1e la1e so1e mi1e so1e re1e mi1e do1e re1e la0e do1e re1e mi1e la1e so1e do2e ti1e la1e so1e mi1e so1e la1e do2e re2e mi2e re2e do2e la1q...
+          la1e so1e do2e ti1e la1e so1e mi1e so1e re1e mi1e do1e re1e la0e do1e re1e mi1e do2q+do1q so1e la1q mi1e so1q re1e mi1q do1e re1q la0q...
+          do2q+fa1q so1e+mi1e la1q+fa1q mi1e+do1e so1q+mi1q re1e+ti0e mi1q+do1q do1e+la0e re1q+ti0q la0q do2q so1e la1q mi1e so1q re1e mi1q do1e re1q la0q...
+          do2q+so1q so1e+mi1e la1q+mi1q mi1e+do1e so1q+mi1q re1e+ti0e mi1q+do1q do1e+la0e re1q+ti0q la0q do2q so1e la1q mi1e so1q re1e mi1q do1e re1q la0q...
+          do2q so1e re2q do2e mi2q re2e so2q mi2e la2q so2e re3w_];
+
+% Get dirty
+s = [treble2+bass2];
+s = s/max(s);
+sound(s,fs);
